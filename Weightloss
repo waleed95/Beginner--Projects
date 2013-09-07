@@ -1,0 +1,99 @@
+// The "Weightloss" class.
+import java.awt.*;
+import hsa.Console;
+
+public class Weightloss
+{
+    static Console c;           // The output console
+
+    public static void main (String[] args)
+    {
+	c = new Console ();
+	//loops for reset
+
+	for (int number = 1 ; number <= 9999999 ; number += 1)
+	{
+
+	    //variables
+
+	    String n; //name
+	    int age; //age
+	    int cw; //current weight
+	    int dw; //desired weight
+	    int w = 0; //week
+	    double bw; //beginning weight
+	    double loss; //loss
+	    double ew; //ending weight
+	    String reset; //reset
+
+	    //Input
+
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("FAT ALBERT INITIATIVE", 430, 110);
+	    c.println ("What is your name?");
+	    n = c.readLine ();
+	    c.clear ();
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("FAT ALBERT INITIATIVE", 430, 110);
+	    c.println ("How old are you?");
+	    age = c.readInt ();
+	    c.clear ();
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("FAT ALBERT INITIATIVE", 430, 110);
+	    c.println ("What is your current weight?");
+	    cw = c.readInt ();
+	    c.clear ();
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("FAT ALBERT INITIATIVE", 430, 110);
+	    c.println ("What weight do you desire?");
+	    dw = c.readInt ();
+	    c.clear ();
+
+	    //Output
+
+	    c.println ("                " + n + "'s results:");
+	    c.println ();
+	    c.println ("--------|----------------|---------------|------------|");
+	    c.print ("  Week  |");
+	    c.print ("  Beginning     |");
+	    c.print ("      Loss     |");
+	    c.print ("    Ending  |");
+	    c.println ();
+	    c.print ("--------|----------------|---------------|------------|");
+	    c.println ();
+	    bw = cw;
+	    ew = bw;
+	    for (int yc = 1 ; ew > dw ; yc = yc + 1)
+	    {
+		w = w + 1;
+		loss = bw * 0.04;
+		ew = bw - loss;
+		c.print (w, 5);
+		c.print ("   |");
+		c.print (bw, 10, 2);
+		c.print ("      |");
+		c.print (loss, 10, 2);
+		c.print ("     |");
+		c.print (ew, 10, 2);
+		c.println ("  |");
+		bw = ew;
+	    }
+	    c.print ("--------|----------------|---------------|------------|");
+	    c.println ();
+	    c.println ("Type RESET and press ENTER to reset");
+	    reset = c.readString ();
+	    c.clear ();
+	}
+
+
+	// Place your program here.  'c' is the output console
+    } // main method
+} // Weightloss class
