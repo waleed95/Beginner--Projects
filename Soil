@@ -1,0 +1,67 @@
+// The "Soilerosion" class.
+import java.awt.*;
+import hsa.Console;
+
+public class Soilerosion
+{
+    static Console c;           // The output console
+
+    public static void main (String[] args)
+    {
+	c = new Console ();
+	//Variables
+	String n;   //ask n=name of country
+	double cs;  //cs= current level of soil
+	double re;  //re=expected rate of erosion
+	double dl;  //dl= level at which soil becomes dangerously low
+
+	int y = 0;  //give y=year
+	double b;   // b=beginning
+	double l;   //l=loss
+	double e;   //e=ending
+
+	//Input
+	c.println ("Welcome to the Soil Erosion project!");
+	c.println ("What is the name of your country?");
+	n = c.readLine ();
+	c.clear ();
+	c.println ("What is the current level of soil?");
+	cs = c.readDouble ();
+	c.clear ();
+	c.println ("What is the expected rate of erosion?");
+	re = c.readDouble () / 100;
+	c.clear ();
+	c.println ("At what level does the soil become dangerously low?");
+	dl = c.readDouble ();
+	c.clear ();
+
+	//Output
+
+	c.println ("       " + n + "'s results:");
+	c.println ();
+	c.println ();
+	c.print ("Year");
+	c.print ("  Beginning");
+	c.print ("   Loss");
+	c.println ("      Ending");
+	c.println ();
+	b = cs;
+	e = b - b * re;
+
+	for (int yc = 1 ; e >= dl ; yc = yc + 1)
+	{
+	    y = y + 1;
+	    l = b * re;
+	    e = b - l;
+
+	    c.print (y, 2);
+	    c.print (b, 11, 2);
+	    c.print (l, 11, 2);
+	    c.println (e, 11, 2);
+
+	    b = e;
+	}
+
+	// Place your program here.  'c' is the output console
+    } // main method
+} // Soilerosion class
