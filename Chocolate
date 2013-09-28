@@ -1,0 +1,78 @@
+// The "Chocolate" class.
+import java.awt.*;
+import hsa.Console;
+
+public class Chocolate
+{
+    static Console c;           // The output console
+
+    public static void main (String[] args)
+    {
+	c = new Console ();
+	//Variables
+	String n;   //ask n=name of store
+	double nchocolate;  //nchocolate= number of chocolate bars sold last week
+	int week = 0; //week=number of weeks to forecast
+	int choc = 0;
+	double chocolate;    //number of bars increased
+	double chips;   // number of chips increased
+	double licorice;   //number of licorice increased
+	double chocs = 0;
+	double chocolat; //number of chocolates this week
+	double chip; //number of chips this week
+	double licoric; //number of licorice this week
+	long round1;
+	long round2;
+	long round3;
+
+	//Input
+	c.println ("What is the name of your store?");
+	n = c.readLine ();
+	c.clear ();
+	c.println ("How many chocolate bars were sold last week?");
+	nchocolate = c.readInt ();
+	c.clear ();
+	c.println ("How many weeks do you want forecasted?");
+	week = c.readInt ();
+	c.clear ();
+	//Output
+	c.println ("       " + n + "'s results:");
+	c.println ();
+	c.println ();
+	c.print ("Week");
+	c.print ("  Chocolates");
+	c.print ("    Chips");
+	c.println ("    Licorice");
+	c.println ();
+	for (int yc = 1 ; yc <= week ; yc = yc + 1)
+	{
+
+	    chocolate = nchocolate * 0.05;
+	    chocolat = chocolate + nchocolate;
+	    licorice = nchocolate * 0.10;
+	    licoric = nchocolate + licorice;
+	    chips = nchocolate * 0.08;
+	    chip = chips + nchocolate;
+
+
+	    c.print (yc, 2);
+	    round1 = Math.round (chocolat);
+	    c.print (round1, 11);
+	    round2 = Math.round (chip);
+	    c.print (round2, 11);
+	    round3 = Math.round (licoric);
+	    c.println (round3, 9);
+	    nchocolate = nchocolate + chocolate;
+	    chocs = chocs + round1;
+	}
+
+	c.println();
+	c.print ("After " + week + " week(s)the amount of chocolate bars we have sold is: ");
+	c.print (chocs, 0);
+
+
+
+
+	// Place your program here.  'c' is the output console
+    } // main method
+} // Chocolate class
