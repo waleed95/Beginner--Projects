@@ -1,0 +1,106 @@
+// The "Calculator" class.
+import java.awt.*;
+import hsa.Console;
+
+public class Calculator
+{
+    static Console c;           // The output console
+
+    public static void main (String[] args)
+    {
+	c = new Console ();
+	for (int yc = 1 ; yc <= 9999 ; yc = +1)
+	{
+	    int choice;
+	    double number1;
+	    double number2;
+	    int reset;
+	    c.println ("Enter the first number");
+	    number1 = c.readDouble ();
+	    c.clear ();
+	    c.println ("Enter the second number");
+	    number2 = c.readDouble ();
+	    c.clear ();
+
+	    {
+		c.println ("1.Multiply");
+		c.println ("2.Divide");
+		c.println ("3.Add");
+		c.println ("4.Subtract");
+		c.println ("5.Exit");
+		c.println ();
+		c.println ("Pick an operation form 1 to 5");
+		choice = c.readInt ();
+
+		if (choice == 1)
+		{
+		    multiply (number1, number2);
+		}
+		else if (choice == 2)
+		{
+		    divide (number1, number2);
+		}
+		else if (choice == 3)
+		{
+		    add (number1, number2);
+		}
+		else if (choice == 4)
+		{
+		    subtract (random1, random2);
+		}
+		else
+		{
+		    System.exit (0);
+		}
+
+		c.println ("Press 1 to reset or 2 to exit");
+		reset = c.readInt ();
+		if (reset == 1)
+		{
+		    c.clear ();
+		}
+
+		else
+		{
+
+		    System.exit (0);
+		}
+	    }
+	}
+
+    } 
+
+
+    public static void multiply (double number1, double number2)
+    {
+	c.clear ();
+	c.println ("The product of the two numbers is: " + (number1 * number2));
+	c.println ();
+    }
+
+
+    public static void divide (double number1, double number2)
+    {
+	c.clear ();
+	c.println ("The quotient of the two numbers is: " + (number1 / number2));
+	c.println ();
+    }
+
+
+    public static void add (double random1, double random2)
+    {
+	c.clear ();
+	c.println ("The sum of the two numbers is: " + (number1 + number2));
+	c.println ();
+    }
+
+
+    public static void subtract (double number1, double number2)
+    {
+	c.clear ();
+	c.println ("The difference of the two numbers is: " + (number1 - number2));
+	c.println ();
+    }
+} 
+
+
