@@ -1,0 +1,119 @@
+// The "Freedom55" class.
+import java.awt.*;
+import hsa.Console;
+
+public class Freedom55
+{
+    static Console c;           // The output console
+
+    public static void main (String[] args)
+    {
+	c = new Console ();
+	//loopa
+
+	for (int yc = 1 ; yc <= 99999999 ; yc++)
+	{
+	    //variables
+	    String name; //name
+	    double invest; //amount invested
+	    double intrestrate; //intrest rate
+	    int retire; //years left until retirement
+
+	    int year = 0;
+	    double beginning;
+	    double intrest;
+	    double ending;
+	    double cat = 0;
+	    double fat;
+	    double hat;
+
+	    String reset;
+
+
+	    //Input
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("Freedom 55", 470, 130);
+	    c.println ("What is your name?");
+	    name = c.readLine ();
+	    c.clear ();
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("Freedom 55", 470, 130);
+	    c.println ("How much do you intend to invest each year?");
+	    invest = c.readDouble ();
+	    c.clear ();
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("Freedom 55", 470, 130);
+	    c.println ("What is the expected intrest rate?");
+	    intrestrate = c.readDouble () / 100;
+	    c.clear ();
+	    c.setColor (Color.black);
+	    c.fillStar (400, 20, 200, 190);
+	    c.setColor (Color.white);
+	    c.drawString ("Freedom 55", 470, 130);
+	    c.println ("How many years are left until retirement?");
+	    retire = c.readInt ();
+	    c.clear ();
+
+	    //Output
+	    c.println ("                " + name + "'s Results");
+	    c.println ();
+	    c.println ("--------|----------------|---------------|------------|");
+
+	    c.print ("  Year  |");
+	    c.print ("   Beginning    |");
+	    c.print ("   Interest    |");
+	    c.print ("   Ending   |");
+
+	    c.println ();
+	    c.print ("--------|----------------|---------------|------------|");
+	    c.println ();
+
+	    fat = invest * intrestrate;
+	    intrest = invest * intrestrate;
+	    ending = invest + intrest;
+	    beginning = ending;
+
+	    for (int current = 1 ; current <= retire ; current++)
+	    {
+
+		year = year + 1;
+
+
+		intrest = (beginning + invest) * intrestrate;
+		hat = beginning * intrestrate;
+
+		c.print (year, 5);
+		c.print ("   |");
+		c.print (cat, 10, 2);
+		c.print ("      |");
+		c.print (fat, 10, 2);
+		c.print ("     |");
+		c.print (ending, 10, 2);
+		c.println ("  |");
+
+		fat = intrest;
+		cat = beginning;
+
+		ending = beginning + hat + invest + (invest * intrestrate);
+		beginning = ending;
+
+	    }
+
+	    c.print ("--------|----------------|---------------|------------|");
+	    c.println ();
+	    c.println ("Type RESET and press ENTER to reset");
+	    reset = c.readString ();
+	    c.clear ();
+
+	}
+
+
+	// Place your program here.  'c' is the output console
+    } // main method
+} // Freedom55 class
