@@ -1,0 +1,315 @@
+VERSION 5.00
+Begin VB.Form BlackJack 
+   BackColor       =   &H00808000&
+   Caption         =   "Blackjack"
+   ClientHeight    =   7740
+   ClientLeft      =   60
+   ClientTop       =   450
+   ClientWidth     =   10395
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   7740
+   ScaleWidth      =   10395
+   StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command3 
+      BackColor       =   &H00808000&
+      Caption         =   "Exit"
+      Height          =   735
+      Left            =   6720
+      Style           =   1  'Graphical
+      TabIndex        =   3
+      Top             =   3840
+      Width           =   1695
+   End
+   Begin VB.CommandButton Command2 
+      BackColor       =   &H00808000&
+      Caption         =   "Play"
+      Height          =   855
+      Left            =   8280
+      Style           =   1  'Graphical
+      TabIndex        =   2
+      Top             =   2400
+      Width           =   1455
+   End
+   Begin VB.CommandButton Command1 
+      BackColor       =   &H00808000&
+      Caption         =   "Menu"
+      Height          =   735
+      Left            =   8640
+      MaskColor       =   &H00C0C000&
+      Style           =   1  'Graphical
+      TabIndex        =   1
+      Top             =   3840
+      Width           =   1575
+   End
+   Begin VB.Label Label5 
+      BackColor       =   &H00808000&
+      Height          =   615
+      Left            =   1680
+      TabIndex        =   7
+      Top             =   4920
+      Width           =   375
+   End
+   Begin VB.Label Label4 
+      BackColor       =   &H00808000&
+      Height          =   495
+      Left            =   1680
+      TabIndex        =   6
+      Top             =   2520
+      Width           =   375
+   End
+   Begin VB.Label Label3 
+      BackColor       =   &H00808000&
+      Caption         =   "Dealer:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   240
+      TabIndex        =   5
+      Top             =   4800
+      Width           =   1215
+   End
+   Begin VB.Label Label2 
+      BackColor       =   &H00808000&
+      Caption         =   "Player:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   240
+      TabIndex        =   4
+      Top             =   2400
+      Width           =   1215
+   End
+   Begin VB.Image Image4 
+      Height          =   2415
+      Left            =   4440
+      Picture         =   "BlackJack.frx":0000
+      Stretch         =   -1  'True
+      Top             =   4680
+      Width           =   2055
+   End
+   Begin VB.Image Image3 
+      Height          =   2415
+      Left            =   2280
+      Picture         =   "BlackJack.frx":025E
+      Stretch         =   -1  'True
+      Top             =   4680
+      Width           =   2055
+   End
+   Begin VB.Image Image2 
+      Height          =   2415
+      Left            =   4440
+      Picture         =   "BlackJack.frx":04BC
+      Stretch         =   -1  'True
+      Top             =   2160
+      Width           =   2055
+   End
+   Begin VB.Image Image1 
+      Height          =   2400
+      Left            =   2280
+      Picture         =   "BlackJack.frx":071A
+      Stretch         =   -1  'True
+      Top             =   2160
+      Width           =   2025
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00808000&
+      Caption         =   "Blackjack"
+      BeginProperty Font 
+         Name            =   "Niagara Solid"
+         Size            =   84.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   2175
+      Left            =   3240
+      TabIndex        =   0
+      Top             =   360
+      Width           =   4455
+   End
+End
+Attribute VB_Name = "BlackJack"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Private Sub Command1_Click()
+BlackJack.Hide
+MainMenu.Show
+End Sub
+
+Private Sub Command2_Click()
+Randomize
+card1 = Int(Rnd * 52) + 1
+Image1.Picture = LoadPicture("g:/Cards/" & card1 & ".gif")
+card2 = Int(Rnd * 52) + 1
+Image2.Picture = LoadPicture("g:/Cards/" & card2 & ".gif")
+card3 = Int(Rnd * 52) + 1
+Image3.Picture = LoadPicture("g:/Cards/" & card3 & ".gif")
+card4 = Int(Rnd * 52) + 1
+Image4.Picture = LoadPicture("g:/Cards/" & card4 & ".gif")
+
+If card1 <= 4 Then
+card1a = 11
+
+ElseIf card1 >= 5 And card1 <= 8 Then
+card1a = 2
+
+ElseIf card1 >= 9 And card1 <= 12 Then
+card1a = 3
+
+ElseIf card1 >= 13 And card1 <= 16 Then
+card1a = 4
+
+ElseIf card1 >= 17 And card1 <= 20 Then
+card1a = 5
+
+ElseIf card1 >= 21 And card1 <= 24 Then
+card1a = 6
+
+ElseIf card1 >= 25 And card1 <= 28 Then
+card1a = 7
+
+ElseIf card1 >= 29 And card1 <= 32 Then
+card1a = 8
+
+ElseIf card1 >= 33 And card1 <= 36 Then
+card1a = 9
+
+ElseIf card1 > 37 Then
+card1a = 10
+
+End If
+
+If card2 <= 4 Then
+card2a = 11
+
+ElseIf card2 >= 5 And card2 <= 8 Then
+card2a = 2
+
+ElseIf card2 >= 9 And card2 <= 12 Then
+card2a = 3
+
+ElseIf card2 >= 13 And card2 <= 16 Then
+card2a = 4
+
+ElseIf card2 >= 17 And card2 <= 20 Then
+card2a = 5
+
+ElseIf card2 >= 21 And card2 <= 24 Then
+card2a = 6
+
+ElseIf card2 >= 25 And card2 <= 28 Then
+card2a = 7
+
+ElseIf card2 >= 29 And card2 <= 32 Then
+card2a = 8
+
+ElseIf card2 >= 33 And card2 <= 36 Then
+card2a = 9
+
+ElseIf card2 > 37 Then
+card2a = 10
+
+End If
+
+If card3 <= 4 Then
+card3a = 11
+
+ElseIf card3 >= 5 And card3 <= 8 Then
+card3a = 2
+
+ElseIf card3 >= 9 And card3 <= 12 Then
+card3a = 3
+
+ElseIf card3 >= 13 And card3 <= 16 Then
+card3a = 4
+
+ElseIf card3 >= 17 And card3 <= 20 Then
+card3a = 5
+
+ElseIf card3 >= 21 And card3 <= 24 Then
+card3a = 6
+
+ElseIf card3 >= 25 And card3 <= 28 Then
+card3a = 7
+
+ElseIf card3 >= 29 And card3 <= 32 Then
+card3a = 8
+
+ElseIf card3 >= 33 And card3 <= 36 Then
+card3a = 9
+
+ElseIf card3 > 37 Then
+card3a = 10
+
+End If
+
+If card4 <= 4 Then
+card4a = 11
+
+ElseIf card4 >= 5 And card4 <= 8 Then
+card4a = 2
+
+ElseIf card4 >= 9 And card4 <= 12 Then
+card4a = 3
+
+ElseIf card4 >= 13 And card4 <= 16 Then
+card4a = 4
+
+ElseIf card4 >= 17 And card4 <= 20 Then
+card4a = 5
+
+ElseIf card4 >= 21 And card4 <= 24 Then
+card4a = 6
+
+ElseIf card4 >= 25 And card4 <= 28 Then
+card4a = 7
+
+ElseIf card4 >= 29 And card4 <= 32 Then
+card4a = 8
+
+ElseIf card4 >= 33 And card4 <= 36 Then
+card4a = 9
+
+ElseIf card4 > 37 Then
+card4a = 10
+
+End If
+
+score1 = card1a + card2a
+score2 = card3a + card4a
+Label4.Caption = score1
+Label5.Caption = score2
+
+If score1 < score2 Then
+MsgBox "You Lose"
+
+ElseIf score1 > score2 Then
+MsgBox "You Win"
+
+ElseIf score1 = score2 Then
+MsgBox "You Lose"
+End If
+End Sub
+
+Private Sub Command3_Click()
+End
+End Sub
+
